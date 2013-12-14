@@ -3,3 +3,6 @@
 *.o
 *.swp
 onelight
+onelight.data
+onelight.html
+server.js
