@@ -13,7 +13,7 @@ onelight:
 	clang++ -o onelight $(FRAMEWORKS) -stdlib=libc++ $(OBJ_FILES) $(LIBS)
 
 emscripten:
-	em++ $(EM_FLAGS) $(LIBS) $(INCLUDE) libs/flux.bc *.cpp -o onelight.html --preload-file .
+	em++ $(EM_FLAGS) $(LIBS) $(INCLUDE) libs/flux.bc src/*.cpp -o onelight.html --preload-file .
 
 clean:
 	rm -f onelight

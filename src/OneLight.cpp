@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     game->initialise();
 
 #ifdef EMSCRIPTEN
-    emscripten_set_main_loop(tick);
+    emscripten_set_main_loop(tick, 0, true);
 #else
     while(game->isAlive())
         tick();
