@@ -41,6 +41,11 @@ void Entity::setSpeed(const float speed)
     this->speed = speed;
 }
 
+Flux::Rectangle2D Entity::getAABB()
+{
+    return aabb;
+}
+
 void Entity::update()
 { }
 

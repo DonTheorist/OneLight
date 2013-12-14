@@ -21,10 +21,13 @@ class Entity
 
         virtual void update();
 
+        Flux::Rectangle2D getAABB();
+
     protected:
         std::shared_ptr<Flux::Sprite> sprite;
         std::shared_ptr<Flux::SpriteBatch> sb;
         Flux::Vector2 velocity;
+        Flux::Rectangle2D aabb;
         float speed;
 };
 
