@@ -114,6 +114,10 @@ namespace Flux
             /** Sets the SpriteBatch which this Sprite belongs. Should only be called once (an assert will fil if not). */
             void setSpriteBatch(SpriteBatch *sb);
 
+            void setRectangle(const Rectangle2D &rectangle);
+            float getWidth();
+            float getHeight();
+
             /** Get a pointer to the SpriteBatch this Sprite belongs to. */
             SpriteBatch* getSpriteBatch();
 
