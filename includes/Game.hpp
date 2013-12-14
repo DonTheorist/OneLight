@@ -2,6 +2,7 @@
 #define ONELIGHT_GAME_H
 
 #include <iostream>
+#include <math.h>
 
 #include "FluxRoot.hpp"
 #include "FluxNormalMaterial.hpp"
@@ -32,6 +33,8 @@ class Game
         std::shared_ptr<Flux::SpriteBatch> groundSB;
         std::shared_ptr<Flux::Sprite> ground;
 
+        float lightIncreaseRate = 0.05f;
+        float lightIncreasePercentage = 0.0f;
         bool keyA = false;
         bool keyD = false;
         bool keyW = false;
