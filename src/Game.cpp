@@ -17,20 +17,37 @@ void Game::initialise()
     player = std::make_shared<Player>(root);
 
     auto texture = root->getTextureManager()->loadTexture("assets/ground.png");
-    auto mat = std::make_shared<Flux::TextureMaterial>(texture);
+    auto normal = root->getTextureManager()->loadTexture("assets/groundNormal.png");
+    auto mat = std::make_shared<Flux::NormalMaterial>(texture, normal);
     groundSB = std::make_shared<Flux::SpriteBatch>(mat);
+    groundSB->setLightEnabled(true);
 
-    ground = std::make_shared<Flux::Sprite>(Flux::Rectangle2D(0.0f, 0.0f, 1024.0f, 1024.0f), Flux::Colour(1.0f, 1.0f, 1.0f, 0.0f), Flux::Rectangle2D(0.0f, 0.0f, 1024.0f, 1024.0f));
+    ground = std::make_shared<Flux::Sprite>(Flux::Rectangle2D(0.0f, 0.0f, 1024.0f, 1024.0f), Flux::Colour::WHITE, Flux::Rectangle2D(0.0f, 0.0f, 1024.0f, 1024.0f), Flux::Rectangle2D(0.0f, 0.0f, 1024.0f, 1024.0f));
     groundSB->addSprite(ground);
-    ground->setDepth(-5.0f);
+    ground->setDepth(-1.0f);
     root->addToScene(groundSB);
+
+    light = std::make_shared<Flux::PointLight>(Flux::Vector3(0.0f, 0.0f, -3.0f), Flux::Colour::WHITE, 0.0f, 2.0f, 2.0f);
+    root->addToScene(light);
+
+    auto ringTexture = root->getTextureManager()->loadTexture("assets/ring.png");
+    auto ringMat = std::make_shared<Flux::TextureMaterial>(ringTexture);
+    ringSB = std::make_shared<Flux::SpriteBatch>(ringMat);
+    ring = std::make_shared<Flux::Sprite>(Flux::Rectangle2D(-128.0f, -128.0f, 256.0f, 256.0f), Flux::Colour::WHITE, Flux::Rectangle2D(0.0f, 0.0f, 256.0f, 256.0f));
+    ringSB->addSprite(ring);
+
+    root->addToScene(ringSB);
+
 }
 
 void Game::tick()
 {
     handleInput();
+    float z = light->getPosition().z;
+    light->setPosition(Flux::Vector3(player->getPosition(), z));
     player->setVelocity(Flux::Vector2::normalise(tmpVelocity) * player->getSpeed());
     player->update();
+    ring->setPosition(player->getPosition() - Flux::Vector2(118.0f, 118.0f));
     root->renderFrame();
 }
 

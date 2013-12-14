@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "FluxRoot.hpp"
-#include "FluxTextureMaterial.hpp"
+#include "FluxNormalMaterial.hpp"
 
 class Player;
 
@@ -35,6 +35,10 @@ class Game
         bool keyW = false;
         bool keyS = false;
         Flux::Vector2 tmpVelocity = Flux::Vector2::ZERO;
+
+        std::shared_ptr<Flux::PointLight> light;
+        std::shared_ptr<Flux::SpriteBatch> ringSB;
+        std::shared_ptr<Flux::Sprite> ring;
 };
 
 #endif
