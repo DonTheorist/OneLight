@@ -75,6 +75,9 @@ namespace Flux
             /** static method for calculating the distance between two Vector2 */
             static float distance(const Vector2 &v1, const Vector2 &v2);
 
+            void normalise();
+            static Vector2 normalise(const Vector2 &v);
+
             /** Vector2(1, 1) */
             static const Vector2 UNIT;
             /** Vector2(0, 0) */
