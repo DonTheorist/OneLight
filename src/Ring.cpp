@@ -39,3 +39,27 @@ void Ring::update()
     oldPosition = player->getPosition();
 }
 
+void Ring::setDiameter(const float diameter)
+{
+    //assume diameter is length of image (not actual circle diameter)
+    float w = sprite->getWidth();
+    float d = (w - diameter) / 2.0f;
+
+    sprite->setRectangle(Flux::Rectangle2D(sprite->getPosition() + Flux::Vector2(d, d), diameter, diameter));
+
+    Flux::Vector2 p = sprite->getPosition();
+
+    sides[0]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y, 1280.0f, diameter));
+    sides[1]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y + diameter, 2560.0f, 720.0f));
+    sides[2]->setRectangle(Flux::Rectangle2D(p.x + diameter, p.y, 1280.0f, diameter));
+    sides[3]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y - 720.0f, 2560.0f, 720.0f));
+}
+
+void Ring::increaseDiamater(const float percentage)
+{
+    float scale = (percentage < 0.0f) ? 1.0f - fabs(percentage) : 1.0f + percentage;
+    float w = sprite->getWidth();
+
+    setDiameter(w * scale);
+}
+
