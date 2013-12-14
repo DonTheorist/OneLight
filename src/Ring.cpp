@@ -2,7 +2,7 @@
 #include "Player.hpp"
 
 Ring::Ring(std::shared_ptr<Player> player, Flux::Root *root)
-    : player(player), oldPosition(player->getPosition())
+    : player(player), root(root), oldPosition(player->getPosition())
 {
     auto ringTexture = root->getTextureManager()->loadTexture("assets/ring.png");
     auto ringMat = std::make_shared<Flux::TextureMaterial>(ringTexture);
@@ -17,6 +17,8 @@ Ring::Ring(std::shared_ptr<Player> player, Flux::Root *root)
     sides.push_back(std::make_shared<Flux::Sprite>(Flux::Rectangle2D(-1398.0f, 128.0f, 2560.0f, 720.0f), Flux::Colour::BLACK));
     sides.push_back(std::make_shared<Flux::Sprite>(Flux::Rectangle2D(136.0f, -118.0f, 1280.0f, 256.0f), Flux::Colour::BLACK));
     sides.push_back(std::make_shared<Flux::Sprite>(Flux::Rectangle2D(-1398.0f, -838.0f, 2560.0f, 720.0f), Flux::Colour::BLACK));
+
+    diameter = 256.0f;
 
     for(auto &s : sides)
         blackoutSB->addSprite(s);
@@ -37,6 +39,9 @@ void Ring::update()
         s->translate(delta);
 
     oldPosition = player->getPosition();
+
+    float fluctuate = sin(root->getElapsedSeconds() * 12.0f) * 0.6f;
+    setDiameter(fluctuate + diameter);
 }
 
 void Ring::setDiameter(const float diameter)
@@ -50,9 +55,11 @@ void Ring::setDiameter(const float diameter)
     Flux::Vector2 p = sprite->getPosition();
 
     sides[0]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y, 1280.0f, diameter));
-    sides[1]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y + diameter, 2560.0f, 720.0f));
+    sides[1]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y + diameter, 4560.0f, 720.0f));
     sides[2]->setRectangle(Flux::Rectangle2D(p.x + diameter, p.y, 1280.0f, diameter));
-    sides[3]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y - 720.0f, 2560.0f, 720.0f));
+    sides[3]->setRectangle(Flux::Rectangle2D(p.x - 1280.0f, p.y - 720.0f, 4560.0f, 720.0f));
+
+    this->diameter = diameter;
 }
 
 void Ring::increaseDiamater(const float percentage)

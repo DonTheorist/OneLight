@@ -2,6 +2,7 @@
 #define ONELIGHT_RING_H
 
 #include <vector>
+#include <math.h>
 
 #include "Entity.hpp"
 #include "FluxRoot.hpp"
@@ -21,11 +22,14 @@ class Ring : public Entity
 
     private:
         std::shared_ptr<Player> player;
+        Flux::Root *root;
         std::shared_ptr<Flux::SpriteBatch> blackoutSB;
         std::vector<std::shared_ptr<Flux::Sprite>> sides;
 
         Flux::Vector2 oldPosition;
+        float diameter;
 };
 
 #endif
+
 
