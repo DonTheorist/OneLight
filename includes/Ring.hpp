@@ -17,6 +17,7 @@ class Ring : public Entity
 
         virtual void update();
 
+        float getDiameter();
         void setDiameter(const float diameter);
         void increaseDiamater(const float percentage);
 

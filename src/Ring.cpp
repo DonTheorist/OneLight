@@ -44,6 +44,11 @@ void Ring::update()
     setDiameter(fluctuate + diameter);
 }
 
+float Ring::getDiameter()
+{
+    return diameter;
+}
+
 void Ring::setDiameter(const float diameter)
 {
     //assume diameter is length of image (not actual circle diameter)
