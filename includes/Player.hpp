@@ -9,9 +9,12 @@ class Player : public Entity
 {
     public:
         Player(Flux::Root *root);
-        ~Player();
+        virtual ~Player();
 
         virtual void update();
+
+        void collideWithBlock(const Flux::Rectangle2D &aabb);
+
 };
 
 #endif
