@@ -32,6 +32,7 @@ void Game::initialise()
     root->addToScene(light);
 
     ring = std::make_shared<Ring>(player, root);
+    //ring->setDiameter(512.0f);
 }
 
 void Game::tick()
@@ -65,7 +66,7 @@ void Game::handleInput()
             {
                 switch(event.key.keysym.sym)
                 {
-                    case SDLK_q : case SDLK_ESCAPE :
+                    case SDLK_ESCAPE :
                     {
                         alive = false;
                         break;
@@ -135,6 +136,16 @@ void Game::handleInput()
                             tmpVelocity.y = 0.0f;
                         else
                             tmpVelocity.y = 1.0f;
+                        break;
+                    }
+                    case SDLK_q :
+                    {
+                        ring->increaseDiamater(0.1f);
+                        break;
+                    }
+                    case SDLK_e :
+                    {
+                        ring->increaseDiamater(-0.1f);
                         break;
                     }
                     default : break;
