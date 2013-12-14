@@ -2,6 +2,7 @@
 #define ONELIGHT_GAME_H
 
 #include <iostream>
+#include <vector>
 #include <math.h>
 
 #include "FluxRoot.hpp"
@@ -9,6 +10,7 @@
 
 class Player;
 class OilLamp;
+class Block;
 
 class Game
 {
@@ -32,6 +34,9 @@ class Game
         std::shared_ptr<OilLamp> lamp;
         std::shared_ptr<Flux::SpriteBatch> groundSB;
         std::shared_ptr<Flux::Sprite> ground;
+
+        std::shared_ptr<Flux::SpriteBatch> blockSB;
+        std::vector<std::shared_ptr<Block>> blocks;
 
         bool keyA = false;
         bool keyD = false;

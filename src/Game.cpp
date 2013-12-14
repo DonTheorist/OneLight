@@ -1,6 +1,7 @@
 #include "Game.hpp"
 #include "Player.hpp"
 #include "OilLamp.hpp"
+#include "Block.hpp"
 
 Game::Game()
     : root(new Flux::Root())
@@ -29,8 +30,19 @@ void Game::initialise()
     root->addToScene(groundSB);
 
 
+
+    auto blockMat = std::make_shared<Flux::ColourMaterial>();
+    blockSB = std::make_shared<Flux::SpriteBatch>(blockMat);
+    root->addToScene(blockSB);
+
+    auto block1 = std::make_shared<Block>(Flux::Rectangle2D(200.0f, 200.f, 200.0f, 200.0f), blockSB);
+    auto block2 = std::make_shared<Block>(Flux::Rectangle2D(600.0f, 300.f, 100.0f, 500.0f), blockSB);
+
+    blocks.push_back(block1);
+    blocks.push_back(block2);
+
     lamp = std::make_shared<OilLamp>(player, root);
-    //ring->setDiameter(512.0f);
+
 }
 
 void Game::tick()
@@ -40,6 +52,15 @@ void Game::tick()
     player->setVelocity(Flux::Vector2::normalise(tmpVelocity) * player->getSpeed());
     player->update();
     lamp->update();
+
+    for(auto b : blocks)
+    {
+        if(b->getAABB().intersect(player->getAABB()))
+        {
+            player->collideWithBlock(b->getAABB());
+            break;
+        }
+    }
 
     root->renderFrame();
 }
