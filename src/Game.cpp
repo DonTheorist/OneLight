@@ -1,6 +1,6 @@
 #include "Game.hpp"
 #include "Player.hpp"
-#include "Ring.hpp"
+#include "OilLamp.hpp"
 
 Game::Game()
     : root(new Flux::Root())
@@ -28,10 +28,8 @@ void Game::initialise()
     ground->setDepth(-1.0f);
     root->addToScene(groundSB);
 
-    light = std::make_shared<Flux::PointLight>(Flux::Vector3(0.0f, 0.0f, -3.0f), Flux::Colour(1.0f, 0.93f, 0.68f), 0.0f, 2.0f, 2.0f);
-    root->addToScene(light);
 
-    ring = std::make_shared<Ring>(player, root);
+    lamp = std::make_shared<OilLamp>(player, root);
     //ring->setDiameter(512.0f);
 }
 
@@ -39,24 +37,10 @@ void Game::tick()
 {
     handleInput();
 
-    if(lightIncreasePercentage != 0.0f)
-    {
-        //impose min/max ring size
-        if((lightIncreasePercentage < 0.0f && ring->getSprite()->getWidth() > 0.1f) || (lightIncreasePercentage > 0.0f && ring->getSprite()->getWidth() < 1280.0f))
-        {
-            ring->increaseDiamater(lightIncreasePercentage);
-            Flux::Vector3 att = light->getAttenuationAsVector3();
-            float q = att.z + lightIncreasePercentage * -2.0f;
-            q = (q < 0.0f) ? 0.0f : q;
-            light->setQuadraticAttenuation(q);
-        }
-    }
-
-    float z = light->getPosition().z;
-    light->setPosition(Flux::Vector3(player->getPosition(), z));
     player->setVelocity(Flux::Vector2::normalise(tmpVelocity) * player->getSpeed());
     player->update();
-    ring->update();
+    lamp->update();
+
     root->renderFrame();
 }
 
@@ -110,12 +94,14 @@ void Game::handleInput()
                     }
                     case SDLK_q :
                     {
-                        lightIncreasePercentage = -lightIncreaseRate;
+                        //lightIncreasePercentage = -lightIncreaseRate;
+                        lamp->decreaseLightPercentgae();
                         break;
                     }
                     case SDLK_e :
                     {
-                        lightIncreasePercentage = lightIncreaseRate;
+                        lamp->increaseLightPercentage();
+                        //lightIncreasePercentage = lightIncreaseRate;
                         break;
                     }
                     default : break;
@@ -164,7 +150,7 @@ void Game::handleInput()
                     }
                     case SDLK_q : case SDLK_e :
                     {
-                        lightIncreasePercentage = 0.0f;
+                        lamp->resetLightPercentage();
                         break;
                     }
                     default : break;

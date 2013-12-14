@@ -8,7 +8,7 @@
 #include "FluxNormalMaterial.hpp"
 
 class Player;
-class Ring;
+class OilLamp;
 
 class Game
 {
@@ -29,12 +29,10 @@ class Game
         SDL_Event event;
 
         std::shared_ptr<Player> player;
-        std::shared_ptr<Ring> ring;
+        std::shared_ptr<OilLamp> lamp;
         std::shared_ptr<Flux::SpriteBatch> groundSB;
         std::shared_ptr<Flux::Sprite> ground;
 
-        float lightIncreaseRate = 0.05f;
-        float lightIncreasePercentage = 0.0f;
         bool keyA = false;
         bool keyD = false;
         bool keyW = false;
