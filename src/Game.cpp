@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include "Player.hpp"
+#include "Ring.hpp"
 
 Game::Game()
     : root(new Flux::Root())
@@ -29,6 +30,8 @@ void Game::initialise()
 
     light = std::make_shared<Flux::PointLight>(Flux::Vector3(0.0f, 0.0f, -3.0f), Flux::Colour::WHITE, 0.0f, 2.0f, 2.0f);
     root->addToScene(light);
+
+    ring = std::make_shared<Ring>(player, root);
 }
 
 void Game::tick()
@@ -38,6 +41,7 @@ void Game::tick()
     light->setPosition(Flux::Vector3(player->getPosition(), z));
     player->setVelocity(Flux::Vector2::normalise(tmpVelocity) * player->getSpeed());
     player->update();
+    ring->update();
     root->renderFrame();
 }
 

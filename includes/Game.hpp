@@ -7,6 +7,7 @@
 #include "FluxNormalMaterial.hpp"
 
 class Player;
+class Ring;
 
 class Game
 {
@@ -27,6 +28,7 @@ class Game
         SDL_Event event;
 
         std::shared_ptr<Player> player;
+        std::shared_ptr<Ring> ring;
         std::shared_ptr<Flux::SpriteBatch> groundSB;
         std::shared_ptr<Flux::Sprite> ground;
 
