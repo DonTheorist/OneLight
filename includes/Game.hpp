@@ -37,8 +37,6 @@ class Game
         Flux::Vector2 tmpVelocity = Flux::Vector2::ZERO;
 
         std::shared_ptr<Flux::PointLight> light;
-        std::shared_ptr<Flux::SpriteBatch> ringSB;
-        std::shared_ptr<Flux::Sprite> ring;
 };
 
 #endif
