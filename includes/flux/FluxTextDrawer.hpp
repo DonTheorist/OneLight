@@ -34,6 +34,11 @@ namespace Flux
 
             unsigned int getFontSize();
             void setFontSize(const unsigned fontSize);
+
+            void setDepth(const float dpeth);
+            float getWidth();
+
+            void centreText(const float screenWidth);
     
         private:
             Vector2 position;
