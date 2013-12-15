@@ -123,3 +123,8 @@ void LevelManager::loadLevel(const int level)
     currentLevel = level;
 }
 
+int LevelManager::getCurrentLevel()
+{
+    return currentLevel;
+}
+

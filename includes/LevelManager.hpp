@@ -24,6 +24,8 @@ class LevelManager
         void unloadLevel();
         void loadLevel(const int level);
 
+        int getCurrentLevel();
+
     private:
         std::shared_ptr<Player> player;
         std::shared_ptr<Flux::SpriteBatch> blockSB;
