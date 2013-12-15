@@ -3,9 +3,13 @@ This is my Ludem Dare 28 entry. The theme is 'You only get one', so I designed a
 
 ## Implementation
 
-I write this using my 2D rendering engine [Flux](https://github.com/baggyn/Flux), which uses [emscripte](https://github.com/kripken/emscripten) to compile C++ to JavaScript.
+I write this using my 2D rendering engine [Flux](https://github.com/baggyn/Flux), which uses [emscripten](https://github.com/kripken/emscripten) to compile C++ to JavaScript.
 
 [You can play it here](https://dl.dropboxusercontent.com/u/4998298/ld/onelight.html)
+
+## Requirements
+
+Latest version of Chrome or Firefox (works best in Chrome).
 
 ## Controls
 
