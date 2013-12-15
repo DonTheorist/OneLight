@@ -68,12 +68,13 @@ LevelManager::~LevelManager()
 void LevelManager::extractValues(std::string str, float *vals)
 {
     int index = 0;
-    str += " ";
     std::stringstream strm;
 
-    for(auto c : str)
+    for(int i = 0; i <= (int)str.length(); i++)
     {
-        if(c != ' ')
+        char c = str[i];
+
+        if(c != ' ' && i != (int)str.length())
             strm << c;
         else
         {
