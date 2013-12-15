@@ -54,7 +54,7 @@ void GameState::update()
     if(levelManager->isCompleted())
     {
         std::stringstream strm;
-        strm << "Congratualtions, you found your way out with " << lamp->getOil() << "\% oil left";
+        strm << "Congratulations, you found your way out with " << lamp->getOil() << "\% oil left";
         game->setEndText(strm.str());
         game->setRestart(true);
         return;
