@@ -19,6 +19,8 @@ class GameState : public State
         virtual void handleInput();
         virtual void onResume();
 
+        void reset();
+
     private:
         std::shared_ptr<Player> player;
         std::shared_ptr<OilLamp> lamp;

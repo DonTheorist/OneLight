@@ -34,13 +34,37 @@ void GameState::initialise()
 
     lamp = std::make_shared<OilLamp>(player, root);
     lamp->setRingVisible(false);
+    
+    levelManager->setOilLamp(lamp);
 }
 
 void GameState::unload()
 { }
 
+void GameState::reset()
+{
+    levelManager->loadLevel(0);
+    levelManager->reset();
+    lamp->reset();
+    currentLevel = -1;
+}
+
 void GameState::update()
 {
+    if(levelManager->isCompleted())
+    {
+        std::stringstream strm;
+        strm << "Congratualtions, you found your way out with " << lamp->getOil() << "\% oil left";
+        game->setEndText(strm.str());
+        game->setRestart(true);
+        return;
+    }
+    if(lamp->isOilEmpty())
+    {
+        game->setEndText("You ran out of oil and are lost in the darkness");
+        game->setRestart(true);
+        return;
+    }
     if(currentLevel != levelManager->getCurrentLevel())
     {
         currentLevel = levelManager->getCurrentLevel();
