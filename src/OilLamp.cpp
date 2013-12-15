@@ -41,7 +41,7 @@ void OilLamp::update()
     {
         //impose min/max ring size
         float d = ring->getDiameter();
-        if((lightIncreasePercentage < 0.0f && d > 0.1f) || (lightIncreasePercentage > 0.0f && d < 1280.0f))
+        if((lightIncreasePercentage < 0.0f && d > 20.0f) || (lightIncreasePercentage > 0.0f && d < 1280.0f))
         {
             ring->increaseDiamater(lightIncreasePercentage);
             Flux::Vector3 att = light->getAttenuationAsVector3();
@@ -55,7 +55,7 @@ void OilLamp::update()
     {
         oilDeplete = 0.1f * (ring->getDiameter() / 256.0f);
         oil -= oilDeplete;
-        barSprite->setRectangle(Flux::Rectangle2D(barSprite->getPosition(), 150.0f, 680.0f * (oil / 100.0f)));
+        barSprite->setRectangle(Flux::Rectangle2D(barSprite->getPosition(), 101.0f, 425.0f * (oil / 100.0f)));
         oilTimer.reset();
     }
 
