@@ -22,7 +22,9 @@ void PreviewState::initialise()
 }
 
 void PreviewState::unload()
-{ }
+{
+    game->getRoot()->removeFromScene(maskSB);
+}
 
 void PreviewState::update()
 {
@@ -31,12 +33,18 @@ void PreviewState::update()
     {
         alpha += deltaAlpha;
         if(alpha > 1.0f)
+        {
             alpha = 1.0f;
+            kill = true;
+        }
 
         mask->setColour(Flux::Colour(0.0f, 0.0f, 0.0f, alpha));
         timer.reset();
     }
 }
+
+void PreviewState::onResume()
+{ }
 
 void PreviewState::handleInput()
 {
@@ -51,6 +59,11 @@ void PreviewState::handleInput()
                     case SDLK_ESCAPE :
                     {
                         game->setAlive(false);
+                        break;
+                    }
+                    case SDLK_l :
+                    {
+                        kill = true;
                         break;
                     }
                     default : break;

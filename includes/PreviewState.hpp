@@ -14,6 +14,7 @@ class PreviewState : public State
         virtual void unload();
         virtual void update();
         virtual void handleInput();
+        virtual void onResume();
 
     private:
         std::shared_ptr<Flux::SpriteBatch> maskSB;
