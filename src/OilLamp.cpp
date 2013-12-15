@@ -66,3 +66,9 @@ void OilLamp::resetLightPercentage()
     lightIncreasePercentage = 0.0f;
 }
 
+void OilLamp::setRingVisible(const bool visible)
+{
+    float depth = (visible) ? 0.0f : 100.0f;
+    ring->setDepth(depth);
+}
+

@@ -17,6 +17,8 @@ class OilLamp
         void decreaseLightPercentgae();
         void resetLightPercentage();
 
+        void setRingVisible(const bool visible);
+
     private:
         std::shared_ptr<Player> player;
         Flux::Root *root;
