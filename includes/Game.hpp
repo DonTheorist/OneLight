@@ -10,7 +10,7 @@
 
 class Player;
 class OilLamp;
-class Block;
+class LevelManager;
 
 class Game
 {
@@ -34,17 +34,13 @@ class Game
         std::shared_ptr<OilLamp> lamp;
         std::shared_ptr<Flux::SpriteBatch> groundSB;
         std::shared_ptr<Flux::Sprite> ground;
-
-        std::shared_ptr<Flux::SpriteBatch> blockSB;
-        std::vector<std::shared_ptr<Block>> blocks;
+        std::shared_ptr<LevelManager> levelManager;
 
         bool keyA = false;
         bool keyD = false;
         bool keyW = false;
         bool keyS = false;
         Flux::Vector2 tmpVelocity = Flux::Vector2::ZERO;
-
-        std::shared_ptr<Flux::PointLight> light;
 };
 
 #endif
