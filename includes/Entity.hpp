@@ -11,7 +11,7 @@ class Entity
         virtual ~Entity();
 
         Flux::Vector2 getPosition();
-        void setPosition(const Flux::Vector2 &position);
+        virtual void setPosition(const Flux::Vector2 &position);
         std::shared_ptr<Flux::Sprite> getSprite();
 
         Flux::Vector2 getVelocity();
