@@ -8,7 +8,9 @@
     </level>
     <level>
         <block>600 300 100 600</block>
-        <exit>0 0 32 48</exit>
+        <key>400, 600</key>
+        <key>400, 500</key>
+        <exit>0 600 32 48</exit>
         <start>100 100</start>
     </level>
 </levels>

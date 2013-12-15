@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font size="24">
+    <char>
+        <code>&nbsp;</code>
+        <rect>1 228 10 0</rect>
+        <offset>0 31</offset>
+    </char>
+    <char>
+        <code>!</code>
+        <rect>2 227 5 24</rect>
+        <offset>2 8</offset>
+    </char>
+    <char>
+        <code>"</code>
+        <rect>8 244 10 9</rect>
+        <offset>1 6</offset>
+    </char>
+    <char>
+        <code>#</code>
+        <rect>19 228 20 21</rect>
+        <offset>0 10</offset>
+    </char>
+    <char>
+        <code>$</code>
+        <rect>40 226 14 25</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>%</code>
+        <rect>55 227 27 24</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>&amp;</code>
+        <rect>83 227 19 24</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>'</code>
+        <rect>103 244 4 9</rect>
+        <offset>1 6</offset>
+    </char>
+    <char>
+        <code>(</code>
+        <rect>108 222 8 33</rect>
+        <offset>2 4</offset>
+    </char>
+    <char>
+        <code>)</code>
+        <rect>117 222 9 33</rect>
+        <offset>0 4</offset>
+    </char>
+    <char>
+        <code>*</code>
+        <rect>127 238 14 14</rect>
+        <offset>1 7</offset>
+    </char>
+    <char>
+        <code>+</code>
+        <rect>142 230 15 15</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>,</code>
+        <rect>158 222 6 10</rect>
+        <offset>1 27</offset>
+    </char>
+    <char>
+        <code>-</code>
+        <rect>165 235 9 3</rect>
+        <offset>1 21</offset>
+    </char>
+    <char>
+        <code>.</code>
+        <rect>175 227 6 5</rect>
+        <offset>1 27</offset>
+    </char>
+    <char>
+        <code>/</code>
+        <rect>182 224 14 29</rect>
+        <offset>0 6</offset>
+    </char>
+    <char>
+        <code>0</code>
+        <rect>197 227 15 23</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>1</code>
+        <rect>213 228 15 21</rect>
+        <offset>1 10</offset>
+    </char>
+    <char>
+        <code>2</code>
+        <rect>229 228 15 22</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>3</code>
+        <rect>1 197 15 22</rect>
+        <offset>1 10</offset>
+    </char>
+    <char>
+        <code>4</code>
+        <rect>17 197 15 22</rect>
+        <offset>1 10</offset>
+    </char>
+    <char>
+        <code>5</code>
+        <rect>33 197 15 22</rect>
+        <offset>1 10</offset>
+    </char>
+    <char>
+        <code>6</code>
+        <rect>49 197 15 23</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>7</code>
+        <rect>65 197 15 22</rect>
+        <offset>1 10</offset>
+    </char>
+    <char>
+        <code>8</code>
+        <rect>81 197 15 23</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>9</code>
+        <rect>97 197 15 23</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>:</code>
+        <rect>113 197 5 16</rect>
+        <offset>2 16</offset>
+    </char>
+    <char>
+        <code>;</code>
+        <rect>119 192 6 21</rect>
+        <offset>1 16</offset>
+    </char>
+    <char>
+        <code>&lt;</code>
+        <rect>126 199 15 17</rect>
+        <offset>1 13</offset>
+    </char>
+    <char>
+        <code>=</code>
+        <rect>142 203 15 9</rect>
+        <offset>1 17</offset>
+    </char>
+    <char>
+        <code>&gt;</code>
+        <rect>158 199 15 17</rect>
+        <offset>1 13</offset>
+    </char>
+    <char>
+        <code>?</code>
+        <rect>174 197 13 24</rect>
+        <offset>0 8</offset>
+    </char>
+    <char>
+        <code>@</code>
+        <rect>188 192 28 28</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>A</code>
+        <rect>217 197 19 23</rect>
+        <offset>0 9</offset>
+    </char>
+    <char>
+        <code>B</code>
+        <rect>237 197 16 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>C</code>
+        <rect>1 167 17 24</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>D</code>
+        <rect>19 167 17 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>E</code>
+        <rect>37 167 15 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>F</code>
+        <rect>53 167 14 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>G</code>
+        <rect>68 167 18 24</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>H</code>
+        <rect>87 167 17 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>I</code>
+        <rect>105 167 4 23</rect>
+        <offset>3 9</offset>
+    </char>
+    <char>
+        <code>J</code>
+        <rect>110 167 12 23</rect>
+        <offset>0 9</offset>
+    </char>
+    <char>
+        <code>K</code>
+        <rect>123 167 17 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>L</code>
+        <rect>141 167 14 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>M</code>
+        <rect>156 167 22 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>N</code>
+        <rect>179 167 17 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>O</code>
+        <rect>197 167 19 24</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>P</code>
+        <rect>217 167 15 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>Q</code>
+        <rect>233 163 19 28</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>R</code>
+        <rect>1 134 17 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>S</code>
+        <rect>19 134 16 24</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>T</code>
+        <rect>36 134 16 23</rect>
+        <offset>0 9</offset>
+    </char>
+    <char>
+        <code>U</code>
+        <rect>53 134 17 23</rect>
+        <offset>2 9</offset>
+    </char>
+    <char>
+        <code>V</code>
+        <rect>71 134 18 24</rect>
+        <offset>0 8</offset>
+    </char>
+    <char>
+        <code>W</code>
+        <rect>90 134 26 24</rect>
+        <offset>1 8</offset>
+    </char>
+    <char>
+        <code>X</code>
+        <rect>117 134 19 24</rect>
+        <offset>0 8</offset>
+    </char>
+    <char>
+        <code>Y</code>
+        <rect>137 134 16 24</rect>
+        <offset>0 8</offset>
+    </char>
+    <char>
+        <code>Z</code>
+        <rect>154 135 16 22</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>[</code>
+        <rect>171 130 7 32</rect>
+        <offset>3 4</offset>
+    </char>
+    <char>
+        <code>\</code>
+        <rect>179 131 14 29</rect>
+        <offset>0 6</offset>
+    </char>
+    <char>
+        <code>]</code>
+        <rect>194 130 8 32</rect>
+        <offset>0 4</offset>
+    </char>
+    <char>
+        <code>^</code>
+        <rect>203 144 15 12</rect>
+        <offset>1 10</offset>
+    </char>
+    <char>
+        <code>_</code>
+        <rect>219 130 18 3</rect>
+        <offset>-1 33</offset>
+    </char>
+    <char>
+        <code>`</code>
+        <rect>238 152 7 7</rect>
+        <offset>2 7</offset>
+    </char>
+    <char>
+        <code>a</code>
+        <rect>1 104 14 18</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>b</code>
+        <rect>16 104 14 25</rect>
+        <offset>2 7</offset>
+    </char>
+    <char>
+        <code>c</code>
+        <rect>31 104 13 18</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>d</code>
+        <rect>45 104 15 25</rect>
+        <offset>1 7</offset>
+    </char>
+    <char>
+        <code>e</code>
+        <rect>61 104 14 18</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>f</code>
+        <rect>76 104 12 25</rect>
+        <offset>0 7</offset>
+    </char>
+    <char>
+        <code>g</code>
+        <rect>89 97 15 25</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>h</code>
+        <rect>105 104 14 25</rect>
+        <offset>2 7</offset>
+    </char>
+    <char>
+        <code>i</code>
+        <rect>120 104 6 23</rect>
+        <offset>1 9</offset>
+    </char>
+    <char>
+        <code>j</code>
+        <rect>127 97 7 30</rect>
+        <offset>0 9</offset>
+    </char>
+    <char>
+        <code>k</code>
+        <rect>135 104 14 25</rect>
+        <offset>2 7</offset>
+    </char>
+    <char>
+        <code>l</code>
+        <rect>150 104 7 25</rect>
+        <offset>2 7</offset>
+    </char>
+    <char>
+        <code>m</code>
+        <rect>158 104 22 18</rect>
+        <offset>2 14</offset>
+    </char>
+    <char>
+        <code>n</code>
+        <rect>181 104 14 18</rect>
+        <offset>2 14</offset>
+    </char>
+    <char>
+        <code>o</code>
+        <rect>196 104 15 18</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>p</code>
+        <rect>212 98 14 24</rect>
+        <offset>2 14</offset>
+    </char>
+    <char>
+        <code>q</code>
+        <rect>227 98 15 24</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>r</code>
+        <rect>243 104 11 17</rect>
+        <offset>1 15</offset>
+    </char>
+    <char>
+        <code>s</code>
+        <rect>1 68 12 18</rect>
+        <offset>1 14</offset>
+    </char>
+    <char>
+        <code>t</code>
+        <rect>14 68 11 22</rect>
+        <offset>0 10</offset>
+    </char>
+    <char>
+        <code>u</code>
+        <rect>26 68 15 17</rect>
+        <offset>1 15</offset>
+    </char>
+    <char>
+        <code>v</code>
+        <rect>42 68 15 17</rect>
+        <offset>0 15</offset>
+    </char>
+    <char>
+        <code>w</code>
+        <rect>58 68 23 17</rect>
+        <offset>0 15</offset>
+    </char>
+    <char>
+        <code>x</code>
+        <rect>82 68 15 18</rect>
+        <offset>0 14</offset>
+    </char>
+    <char>
+        <code>y</code>
+        <rect>98 62 15 23</rect>
+        <offset>0 15</offset>
+    </char>
+    <char>
+        <code>z</code>
+        <rect>114 69 13 16</rect>
+        <offset>1 15</offset>
+    </char>
+    <char>
+        <code>{</code>
+        <rect>128 63 10 33</rect>
+        <offset>1 4</offset>
+    </char>
+    <char>
+        <code>|</code>
+        <rect>139 64 4 30</rect>
+        <offset>2 6</offset>
+    </char>
+    <char>
+        <code>}</code>
+        <rect>144 63 10 33</rect>
+        <offset>0 4</offset>
+    </char>
+    <char>
+        <code>~</code>
+        <rect>155 75 17 6</rect>
+        <offset>1 19</offset>
+    </char>
+</font>
