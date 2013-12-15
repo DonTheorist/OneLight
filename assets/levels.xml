@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<levels>
+    <level>
+        <block>200 200 200 200</block>
+        <block>600 300 100 100</block>
+        <exit>1000 690 32 48</exit>
+        <start>0 0</start>
+    </level>
+    <level>
+        <block>600 300 100 600</block>
+        <exit>0 0 32 48</exit>
+        <start>100 100</start>
+    </level>
+</levels>
