@@ -2,6 +2,7 @@
 .ycm*
 *.o
 *.swp
+*.swo
 onelight
 onelight.data
 onelight.html
