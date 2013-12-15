@@ -23,7 +23,7 @@ class PreviewState : public State
 
         float deltaTime = 50.0f;
         float alpha = 0.0f;
-        float deltaAlpha = 0.01f;
+        float deltaAlpha = 0.03f;
 };
 
 #endif
