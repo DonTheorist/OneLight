@@ -9,7 +9,7 @@
 #include "FluxRoot.hpp"
 #include "FluxNormalMaterial.hpp"
 
-#include "GameState.hpp"
+class State;
 
 class Game
 {
@@ -27,11 +27,19 @@ class Game
         State* getCurrentState();
         void pushState(State *state);
 
+        void setRestart(const bool restart);
+
+        void setEndText(const std::string &endText);
+
     private:
         Flux::Root *root;
         bool alive = true;
+        bool restart = false;
 
         std::stack<State*> states;
+
+        void setupInitialStates();
+        std::string endText = " ";
 
 };
 

@@ -1,6 +1,8 @@
 #include "Game.hpp"
 #include "Block.hpp"
 #include "LevelManager.hpp"
+#include "IntroState.hpp"
+#include "GameState.hpp"
 #include "PreviewState.hpp"
 
 Game::Game()
@@ -21,14 +23,28 @@ Game::~Game()
 void Game::initialise()
 {
     root->initialise();
-
-    GameState *gameState = new GameState(this);
-    gameState->initialise();
-    states.push(gameState);
+    setupInitialStates();
 }
 
 void Game::tick()
 {
+    if(restart)
+    {
+        while(states.size() != 1)
+        {
+            states.top()->unload();
+            delete states.top();
+            states.pop();
+        }
+
+        dynamic_cast<GameState*>(states.top())->reset();
+
+        setupInitialStates();
+
+        restart = false;
+        return;
+    }
+
     if(states.top()->needToKill())
     {
         if(states.size() == 1)
@@ -70,5 +86,29 @@ State* Game::getCurrentState()
 void Game::pushState(State *state)
 {
     states.push(state);
+}
+
+void Game::setRestart(const bool restart)
+{
+    this->restart = restart;
+}
+
+void Game::setupInitialStates()
+{
+    if(states.size() == 0)
+    {
+        GameState *gameState = new GameState(this);
+        gameState->initialise();
+        states.push(gameState);
+    }
+
+    IntroState *introState = new IntroState(this, endText);
+    introState->initialise();
+    states.push(introState);
+}
+
+void Game::setEndText(const std::string &endText)
+{
+    this->endText = endText;
 }
 
