@@ -17,8 +17,7 @@ LevelManager::LevelManager(std::shared_ptr<Player> player, Flux::Root *root)
     root->addToScene(keySB);
 
     std::ifstream f;
-    f.open("assets/levels.xml");
-    std::stringstream strm;
+    f.open("assets/levels.txt");
 
     if(f.is_open())
     {
@@ -26,52 +25,52 @@ LevelManager::LevelManager(std::shared_ptr<Player> player, Flux::Root *root)
         {
             std::string tmp;
             std::getline(f, tmp);
-            strm << tmp;
+
+            if(tmp[0] == 'l')
+            {
+                Level *level = new Level();
+                do
+                {
+                    std::getline(f, tmp);
+
+                    if(tmp[0] == 'b')
+                    {
+                        float blockVals[4] = { 0.0f };
+                        std::string blockRect = tmp.substr(2);
+
+                        extractValues(blockRect, blockVals);
+                        level->blocks.push_back(Flux::Rectangle2D(blockVals[0], blockVals[1], blockVals[2], blockVals[3]));
+                    }
+                    else if(tmp[0] == 'k')
+                    {
+                        float keyVals[2] = { 0.0f };
+                        std::string keyRect = tmp.substr(2);
+
+                        extractValues(keyRect, keyVals);
+                        level->keys.push_back(Flux::Vector2(keyVals[0], keyVals[1]));
+                    }
+                    else if(tmp[0] == 'e')
+                    {
+                        std::string exitRect = tmp.substr(2);
+                        float exitVals[4] = { 0.0f };
+                        extractValues(exitRect, exitVals);
+                        level->exit = Flux::Rectangle2D(exitVals[0], exitVals[1], exitVals[2], exitVals[3]);
+                    }
+                    else if(tmp[0] == 's')
+                    {
+                        std::string startVec = tmp.substr(2);
+                        float startVals[2] = { 0.0f };
+
+                        extractValues(startVec, startVals);
+                        level->start = Flux::Vector2(startVals[0], startVals[1]);
+                    }
+                }
+                while(tmp[0] != 'z');
+                std::getline(f, tmp);
+
+                levels.push_back(level);
+            }
         }
-    }
-
-    rapidxml::xml_document<> doc;
-    doc.parse<0>((char*)strm.str().c_str());
-
-    rapidxml::xml_node<> *node = doc.first_node("levels");
-    rapidxml::xml_node<> *child;
-
-    for(child = node->first_node("level"); child; child = child->next_sibling())
-    {
-        Level *level = new Level();
-        rapidxml::xml_node<> *blockChild;
-        rapidxml::xml_node<> *keyChild;
-
-        for(blockChild = child->first_node("block"); blockChild; blockChild = blockChild->next_sibling("block"))
-        {
-            float blockVals[4] = { 0.0f };
-            std::string blockRect = blockChild->value();
-
-            extractValues(blockRect, blockVals);
-            level->blocks.push_back(Flux::Rectangle2D(blockVals[0], blockVals[1], blockVals[2], blockVals[3]));
-        }
-
-        for(keyChild = child->first_node("key"); keyChild; keyChild = keyChild->next_sibling("key"))
-        {
-            float keyVals[2] = { 0.0f };
-            std::string keyRect = keyChild->value();
-
-            extractValues(keyRect, keyVals);
-            level->keys.push_back(Flux::Vector2(keyVals[0], keyVals[1]));
-        }
-
-        std::string exitRect = child->first_node("exit")->value();
-        std::string startVec = child->first_node("start")->value();
-        float exitVals[4] = { 0.0f };
-        float startVals[2] = { 0.0f };
-
-        extractValues(exitRect, exitVals);
-        level->exit = Flux::Rectangle2D(exitVals[0], exitVals[1], exitVals[2], exitVals[3]);
-
-        extractValues(startVec, startVals);
-        level->start = Flux::Vector2(startVals[0], startVals[1]);
-
-        levels.push_back(level);
     }
 }
 
@@ -108,15 +107,23 @@ void LevelManager::extractValues(std::string str, float *vals)
 
 void LevelManager::update()
 {
+    bool colide = false;
+
     for(auto b : blocks)
     {
         if(b->getAABB().intersect(player->getAABB()))
         {
             player->collideWithBlock(b->getAABB());
             lamp->removeOil(0.1f);
-            break;
+            colide = true;
         }
+
     }
+
+    if(colide)
+        lamp->setLightColour(Flux::Colour::CRIMSON);
+    else
+        lamp->setLightColour(Flux::Colour(1.0f, 0.93f, 0.68f)); 
 
     for(auto k : keys)
     {
@@ -144,6 +151,8 @@ void LevelManager::unloadLevel()
 {
     blockSB->clear();
     blocks.clear();
+    keySB->clear();
+    keys.clear();
 }
 
 void LevelManager::loadLevel(const int level)
