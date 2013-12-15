@@ -8,11 +8,25 @@ OilLamp::OilLamp(std::shared_ptr<Player> player, Flux::Root *root)
     light = std::make_shared<Flux::PointLight>(Flux::Vector3(0.0f, 0.0f, -3.0f), Flux::Colour(1.0f, 0.93f, 0.68f), 0.0f, 2.0f, 2.0f);
     this->root->addToScene(light);
 
+    auto tex = root->getTextureManager()->loadTexture("assets/lamp.png");
+    auto texMat = std::make_shared<Flux::TextureMaterial>(tex);
+    auto lampSB = std::make_shared<Flux::SpriteBatch>(texMat);
+    auto lampSprite = std::make_shared<Flux::Sprite>(Flux::Rectangle2D(1024.0f, 0.0f, 256.0f, 720.0f), Flux::Colour::WHITE, Flux::Rectangle2D(0.0f, 0.0f, 459.0f, 1024.0f));
+
+    lampSB->addSprite(lampSprite);
+    lampSprite->setDepth(1.0f);
+    root->addToScene(lampSB);
+
     auto mat = std::make_shared<Flux::ColourMaterial>();
     barSB = std::make_shared<Flux::SpriteBatch>(mat);
-    barSprite = std::make_shared<Flux::Sprite>(Flux::Rectangle2D(1100.0f, 20.0f, 150.0f, 680.0f), Flux::Colour::AZURE);
+
+    Flux::Colour c = Flux::Colour::AZURE;
+    c.a = 0.5f;
+
+    barSprite = std::make_shared<Flux::Sprite>(Flux::Rectangle2D(1102.0f, 99.0f, 101.0f, 425.0f), c);
 
     barSB->addSprite(barSprite);
+    barSprite->setDepth(2.0f);
     root->addToScene(barSB);
 
     oilTimer.reset();
