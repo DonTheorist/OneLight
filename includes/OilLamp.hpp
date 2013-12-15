@@ -18,6 +18,11 @@ class OilLamp
         void resetLightPercentage();
         void resetRingDiameter();
 
+        void reset();
+        bool isOilEmpty();
+        float getOil();
+        void removeOil(const float amount);
+
         void setRingVisible(const bool visible);
 
     private:

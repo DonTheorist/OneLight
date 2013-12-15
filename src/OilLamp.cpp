@@ -35,6 +35,14 @@ OilLamp::OilLamp(std::shared_ptr<Player> player, Flux::Root *root)
 OilLamp::~OilLamp()
 { }
 
+void OilLamp::reset()
+{
+    oil = 100.0f;
+    oilTimer.reset();
+    barSprite->setRectangle(Flux::Rectangle2D(barSprite->getPosition(), 101.0f, 425.0f * (oil / 100.0f)));
+    oilDeplete = 0.1f;
+}
+
 void OilLamp::update()
 {
     if(lightIncreasePercentage != 0.0f)
@@ -89,5 +97,20 @@ void OilLamp::setRingVisible(const bool visible)
 {
     float depth = (visible) ? 0.0f : 100.0f;
     ring->setDepth(depth);
+}
+
+bool OilLamp::isOilEmpty()
+{
+    return (oil <= 0.0f);
+}
+
+float OilLamp::getOil()
+{
+    return oil;
+}
+
+void OilLamp::removeOil(const float amount)
+{
+    oil -= amount;
 }
 
