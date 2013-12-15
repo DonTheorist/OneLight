@@ -12,6 +12,7 @@ class Player : public Entity
         virtual ~Player();
 
         virtual void update();
+        virtual void setPosition(const Flux::Vector2 &position);
 
         void collideWithBlock(const Flux::Rectangle2D &aabb);
 

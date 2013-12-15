@@ -23,6 +23,12 @@ void Player::update()
     aabb.position += velocity;
 }
 
+void Player::setPosition(const Flux::Vector2 &position)
+{
+    sprite->setPosition(position);
+    aabb.position = position;
+}
+
 void Player::collideWithBlock(const Flux::Rectangle2D &aabb)
 {
     float hwA = this->aabb.width / 2.0f;
