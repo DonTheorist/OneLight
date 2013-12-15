@@ -21,6 +21,8 @@ class Ring : public Entity
         void setDiameter(const float diameter);
         void increaseDiamater(const float percentage);
 
+        void setDepth(const float depth);
+
     private:
         std::shared_ptr<Player> player;
         Flux::Root *root;

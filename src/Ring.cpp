@@ -75,3 +75,10 @@ void Ring::increaseDiamater(const float percentage)
     setDiameter(w * scale);
 }
 
+void Ring::setDepth(const float depth)
+{
+    sprite->setDepth(depth);
+    for(auto s : sides)
+        s->setDepth(depth);
+}
+
