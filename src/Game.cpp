@@ -8,6 +8,12 @@ Game::Game()
 
 Game::~Game()
 {
+    while(!states.empty())
+    {
+        delete states.top();
+        states.pop();
+    }
+
     delete root;
 }
 
