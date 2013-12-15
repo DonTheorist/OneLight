@@ -17,6 +17,7 @@ class GameState : public State
         virtual void unload();
         virtual void update();
         virtual void handleInput();
+        virtual void onResume();
 
     private:
         std::shared_ptr<Player> player;

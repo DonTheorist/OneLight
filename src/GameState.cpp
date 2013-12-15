@@ -32,6 +32,7 @@ void GameState::initialise()
     levelManager->loadLevel(0);
 
     lamp = std::make_shared<OilLamp>(player, root);
+    lamp->setRingVisible(false);
 }
 
 void GameState::unload()
@@ -46,6 +47,15 @@ void GameState::update()
 
     levelManager->update();
     lamp->update();
+}
+
+void GameState::onResume()
+{
+    lamp->setRingVisible(true);
+    lamp->resetRingDiameter();
+
+    keyA = keyD = keyS = keyW = false;
+    tmpVelocity = Flux::Vector2::ZERO;
 }
 
 void GameState::handleInput()
