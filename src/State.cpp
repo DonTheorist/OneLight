@@ -7,3 +7,8 @@ State::State(Game *game)
 State::~State()
 { }
 
+bool State::needToKill()
+{
+    return kill;
+}
+

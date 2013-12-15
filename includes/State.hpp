@@ -15,10 +15,14 @@ class State
         virtual void unload() = 0;
         virtual void update() = 0;
         virtual void handleInput() = 0;
+        virtual void onResume() = 0;
+
+        bool needToKill();
 
     protected:
         Game *game;
         SDL_Event event;
+        bool kill = false;
 };
 
 
