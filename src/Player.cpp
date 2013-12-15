@@ -21,6 +21,28 @@ void Player::update()
 {
     sprite->translate(velocity);
     aabb.position += velocity;
+
+    Flux::Vector2 p = sprite->getPosition();
+    if(p.x < 0.0f)
+    {
+        p.x = 0.0f;
+        setPosition(p);
+    }
+    if(p.y < 0.0f)
+    {
+        p.y = 0.0f;
+        setPosition(p);
+    }
+    if(p.x > 1004.0f)
+    {
+        p.x = 1004.0f;
+        setPosition(p);
+    }
+    if(p.y > 700.0f)
+    {
+        p.y = 700.0f;
+        setPosition(p);
+    }
 }
 
 void Player::setPosition(const Flux::Vector2 &position)
