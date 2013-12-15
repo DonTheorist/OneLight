@@ -11,7 +11,7 @@ Player::Player(Flux::Root *root)
 
     root->addToScene(sb);
 
-    speed = 5.0f;
+    speed = 4.0f;
 }
 
 Player::~Player()
