@@ -1,5 +1,7 @@
 #include "OilLamp.hpp"
 
+#define DEFAULT_RING_SIZE 128.0f
+
 OilLamp::OilLamp(std::shared_ptr<Player> player, Flux::Root *root)
     :player(player), root(root)
 {
@@ -61,7 +63,7 @@ void OilLamp::update()
 
     if(oilTimer.elapsedMilliSeconds() >= oilUpdateTime)
     {
-        oilDeplete = 0.1f * (ring->getDiameter() / 256.0f);
+        oilDeplete = 0.05f * (ring->getDiameter() / DEFAULT_RING_SIZE);
         oil -= oilDeplete;
         barSprite->setRectangle(Flux::Rectangle2D(barSprite->getPosition(), 101.0f, 425.0f * (oil / 100.0f)));
         oilTimer.reset();
@@ -90,7 +92,7 @@ void OilLamp::resetLightPercentage()
 
 void OilLamp::resetRingDiameter()
 {
-    ring->setDiameter(256.0f);
+    ring->setDiameter(DEFAULT_RING_SIZE);
 }
 
 void OilLamp::setRingVisible(const bool visible)
@@ -112,5 +114,10 @@ float OilLamp::getOil()
 void OilLamp::removeOil(const float amount)
 {
     oil -= amount;
+}
+
+void OilLamp::setLightColour(const Flux::Colour &colour)
+{
+    light->setColour(colour);
 }
 

@@ -24,6 +24,7 @@ class OilLamp
         void removeOil(const float amount);
 
         void setRingVisible(const bool visible);
+        void setLightColour(const Flux::Colour &colour);
 
     private:
         std::shared_ptr<Player> player;
@@ -39,7 +40,7 @@ class OilLamp
 
         Flux::Timer oilTimer;
         float oil = 100.0f;
-        float oilDeplete = 0.1f;
+        float oilDeplete = 0.05f;
         float oilUpdateTime = 50.0f;
 };
 
