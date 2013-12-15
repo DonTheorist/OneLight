@@ -23,8 +23,10 @@ class LevelManager
         void update();
         void unloadLevel();
         void loadLevel(const int level);
+        void reset();
 
         int getCurrentLevel();
+        bool isCompleted();
 
     private:
         std::shared_ptr<Player> player;
@@ -33,6 +35,7 @@ class LevelManager
         std::vector<Level*> levels;
 
         int currentLevel = 0;
+        bool completed = false;
 
         void extractValues(std::string str, float *vals);
 

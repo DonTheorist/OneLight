@@ -65,6 +65,12 @@ LevelManager::~LevelManager()
       delete l; 
 }
 
+void LevelManager::reset()
+{
+    currentLevel = 0;
+    completed = false;
+}
+
 void LevelManager::extractValues(std::string str, float *vals)
 {
     int index = 0;
@@ -127,4 +133,10 @@ int LevelManager::getCurrentLevel()
 {
     return currentLevel;
 }
+
+bool LevelManager::isCompleted()
+{
+    return completed;
+}
+
 
