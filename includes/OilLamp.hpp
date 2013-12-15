@@ -16,6 +16,7 @@ class OilLamp
         void increaseLightPercentage();
         void decreaseLightPercentgae();
         void resetLightPercentage();
+        void resetRingDiameter();
 
         void setRingVisible(const bool visible);
 
