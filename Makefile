@@ -3,7 +3,7 @@ OBJ_FILES := $(addprefix ,$(notdir $(CPP_FILES:.cpp=.o)))
 CC_FLAGS = -g -stdlib=libc++ -Wall -std=c++11 -Werror -O3
 INCLUDE = -Iincludes -Iincludes/flux -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers
 FRAMEWORKS = -framework SDL_image -framework OpenGL -framework SDL -framework Cocoa -framework AppKit
-EM_FLAGS = -stdlib=libc++ -std=c++11 -O2 -g -s ASM_JS=1
+EM_FLAGS = -stdlib=libc++ -std=c++11 -O2 -g -s ASM_JS=1 -s TOTAL_MEMORY=33554432
 LIBS = -Llibs -L/opt/local/lib -lSDLmain -lFlux
 
 .PHONY:onelight
