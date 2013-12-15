@@ -32,6 +32,8 @@ class GameState : public State
         bool keyW = false;
         bool keyS = false;
         Flux::Vector2 tmpVelocity = Flux::Vector2::ZERO;
+
+        int currentLevel = -1;
 };
 
 #endif

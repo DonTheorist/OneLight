@@ -3,6 +3,7 @@
 #include "Player.hpp"
 #include "OilLamp.hpp"
 #include "LevelManager.hpp"
+#include "PreviewState.hpp"
 
 GameState::GameState(Game *game)
     : State(game)
@@ -40,6 +41,17 @@ void GameState::unload()
 
 void GameState::update()
 {
+    if(currentLevel != levelManager->getCurrentLevel())
+    {
+        currentLevel = levelManager->getCurrentLevel();
+        lamp->setRingVisible(false);
+
+        PreviewState *previewState = new PreviewState(game);
+        previewState->initialise();
+        game->pushState(previewState);
+        return;
+    }
+
     handleInput();
 
     player->setVelocity(Flux::Vector2::normalise(tmpVelocity) * player->getSpeed());
