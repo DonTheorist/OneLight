@@ -109,25 +109,25 @@ void GameState::handleInput()
                         game->setAlive(false);
                         break;
                     }
-                    case SDLK_a :
+                    case SDLK_a : case SDLK_LEFT :
                     {
                         tmpVelocity.x = -1.0f;
                         keyA = true;
                         break;
                     }
-                    case SDLK_d :
+                    case SDLK_d : case SDLK_RIGHT :
                     {
                         tmpVelocity.x = 1.0f;
                         keyD = true;
                         break;
                     }
-                    case SDLK_w :
+                    case SDLK_w : case SDLK_UP :
                     {
                         tmpVelocity.y = 1.0f;
                         keyW = true;
                         break;
                     }
-                    case SDLK_s :
+                    case SDLK_s : case SDLK_DOWN:
                     {
                         tmpVelocity.y = -1.0f;
                         break;
@@ -152,7 +152,7 @@ void GameState::handleInput()
             {
                 switch(event.key.keysym.sym)
                 {
-                    case SDLK_a :
+                    case SDLK_a : case SDLK_LEFT :
                     {
                         keyA = false;
                         if(!keyD)
@@ -161,7 +161,7 @@ void GameState::handleInput()
                             tmpVelocity.x = 1.0f;
                         break;
                     }
-                    case SDLK_d :
+                    case SDLK_d : case SDLK_RIGHT :
                     {
                         keyD = false;
                         if(!keyA)
@@ -170,7 +170,7 @@ void GameState::handleInput()
                             tmpVelocity.x = -1.0f;
                         break;
                     }
-                    case SDLK_w :
+                    case SDLK_w : case SDLK_UP :
                     {
                         keyW = false;
                         if(!keyS)
@@ -179,7 +179,7 @@ void GameState::handleInput()
                             tmpVelocity.y = -1.0f;
                         break;
                     }
-                    case SDLK_s :
+                    case SDLK_s : case SDLK_DOWN :
                     {
                         keyS = false;
                         if(!keyW)
