@@ -24,6 +24,9 @@ class Game
         bool isAlive();
         void setAlive(const bool alive);
 
+        State* getCurrentState();
+        void pushState(State *state);
+
     private:
         Flux::Root *root;
         bool alive = true;

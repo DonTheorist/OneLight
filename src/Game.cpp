@@ -48,3 +48,13 @@ void Game::setAlive(const bool alive)
     this->alive = alive;
 }
 
+State* Game::getCurrentState()
+{
+    return states.top();
+}
+
+void Game::pushState(State *state)
+{
+    states.push(state);
+}
+
