@@ -1,5 +1,5 @@
 # One Light
-This is my Ludem Dare 28 entry. The theme is 'You only get one', so I designed and amde a game in which the character is lost in a cae and must find their way out. You only have one lamp with a finite amount of oil, the brighter you make the lamp, the more you can see of the level but the quicker the oil runs out. Also bumbing into walls casuses oil to spil.
+This is my Ludem Dare 28 entry. The theme is 'You only get one', so I designed and made a game in which the character is lost in a cave and must find their way out. You only have one lamp with a finite amount of oil, the brighter you make the lamp, the more you can see of the level but the quicker the oil runs out. Also bumping into walls casuses oil to spill.
 
 ## Implementation
 
